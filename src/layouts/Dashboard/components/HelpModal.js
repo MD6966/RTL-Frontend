@@ -59,9 +59,9 @@ export default function FormDialog() {
   };
 
   const handleSubmit = async () => {
-   if (complaint.length < 1)
+   if (complaint.length < 4)
    {
-    alert('Please Enter your complaint')
+    setError(true)
    }
     else {
       const config = await makeConfig('application/json');
@@ -76,6 +76,8 @@ export default function FormDialog() {
       config
     );
     setOpen(false);
+    setError(false)
+    setComplaint("")
     enqueueSnackbar(data.data.message, {
       variant: 'success'
     });
@@ -84,13 +86,21 @@ export default function FormDialog() {
 
   const handleChange = (event) => {
     setComplaint(event.target.value);
+    if(complaint.length > 4) {
+      setError(false)
+    }
+    else {
+      setError(error)
+    }
   };
+  console.log(complaint)
   const handleSpeedDialOpen =() => {
     setSpeedDailOpen(true)
   }
   const handleSpeedDialClose =() => {
     setSpeedDailOpen(false)
   }
+  const [error, setError] = useState(false)
 
   return (
     <div>
@@ -131,6 +141,8 @@ export default function FormDialog() {
             type="text"
             value={complaint}
             variant="outlined"
+            error={error}
+            helperText={error ? "Please fill this field correctly" : null}
           />
         </DialogContent>
         <DialogActions>
@@ -142,6 +154,7 @@ export default function FormDialog() {
           </Button>
           <Button
             color="secondary"
+            variant={error ? 'disabled' : 'text'}
             onClick={handleSubmit}
           >
             Confirm
