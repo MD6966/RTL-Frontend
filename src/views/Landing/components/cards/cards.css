@@ -1,0 +1,38 @@
+.cards-1 {
+	padding-top: 3.25rem;
+	padding-bottom: 3rem;
+	text-align: center;
+}
+
+.cards-1 .h2-heading {
+	margin-bottom: 3.5rem;
+}
+
+.cards-1 .card {
+    display: inline-block;
+    width: 18rem;
+    max-width: 100%;
+    margin-right: 3rem;
+    margin-left: 2rem;
+	vertical-align: top;
+	border:none;
+}
+
+.cards-1 .card-image {
+	max-width: 16rem;
+	margin-right: auto;
+	margin-bottom: 2rem;
+	margin-left: auto;
+}
+
+.cards-1 .card-title {
+	margin-bottom: 0.5rem;
+}
+
+.cards-1 .card-body {
+	padding: 0;
+}
+
+.img-fluid{
+	max-width: 141%;
+}

@@ -1,0 +1,41 @@
+.basic-1 {
+  padding-top: 7.5rem;
+  padding-bottom: 8rem;
+}
+
+.basic-1 .text-container {
+  margin-bottom: 3.75rem;
+}
+
+.basic-1 .list-unstyled {
+  margin-bottom: 1.375rem;
+}
+
+.basic-1 .list-unstyled .fas {
+  color: #3f51b5;
+  font-size: 0.5rem;
+  line-height: 1.625rem;
+}
+
+.basic-1 .list-unstyled .media-body {
+  margin-left: 0.625rem;
+}
+
+/* Custpm CSS */
+
+.list-margin {
+  margin-bottom: 1.3075rem !important;
+}
+
+.custom-img-fluid {
+  width: 100% !important;
+  padding-top: 55px;
+}
+
+.list-heading-margin {
+  margin-bottom: 2.0rem !important;
+}
+
+.list-font {
+  font-size: 16px;
+}

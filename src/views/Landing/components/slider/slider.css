@@ -1,0 +1,99 @@
+.slider-1 {
+	padding-top: 7rem;
+	padding-bottom: 5.25rem;
+}
+
+.slider-1 .slider-container {
+	text-align: center;
+}
+
+.slider-1 .slider-container {
+	margin-right: 3rem;
+	margin-left: 3rem;
+}
+
+.img-fluid{
+	max-width: 124%;
+}
+.makeStyles-stats-1167 {
+    color: #FFFFFF;
+    padding: 8px;
+    background-color: #3f51b5;
+}
+.MuiTypography-colorInherit {
+    color: inherit;
+}
+.MuiTypography-gutterBottom {
+    margin-bottom: 8px;
+}
+.MuiTypography-h3 {
+   
+    font-size: 24px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 28px;
+	letter-spacing: -0.06px;
+	
+}
+.MuiGrid-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    box-sizing: border-box;
+}
+.MuiTypography-gutterBottom {
+    margin-bottom: 8px;
+}
+.MuiTypography-h3 {
+    font-size: 24px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.06px;
+}
+.MuiTypography-body2 {
+    
+    font-size: 15px;
+    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+    font-weight: 400;
+    line-height: 25px;
+    letter-spacing: -0.04px;
+}
+
+.line-height{
+    line-height: 30px;
+}
+
+/* hamza munir */
+
+.MuiGrid-spacing-xs-3 > .MuiGrid-item{
+	padding: 12px;
+	margin: 0 auto;
+}
+
+.makeStyles-statsInner-87{
+	 width: 1173px ; 
+	margin: 0 auto;
+	max-width: 100%;
+    
+}
+
+
+.MuiGrid-grid-lg-3 {
+    flex-grow: 0;
+    max-width: 25%;
+	flex-basis: 25%;
+	margin: 0 auto;
+}
+
+.MuiGrid-item {
+    
+    box-sizing: border-box;
+}
+
+.makeStyles-statsInner-165 {
+    width: 1173px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
