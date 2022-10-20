@@ -40,8 +40,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SettingsPopover = (props) => {
-  const { anchorEl, open,  ...rest } = props;
-  console.log(open)
+  const { anchorEl,  ...rest } = props;
 
   const inputLabel = React.useRef(null);
   const s = useSelector((state) => state.auth.user.settings);
@@ -62,7 +61,6 @@ const SettingsPopover = (props) => {
     enqueueSnackbar('Settings Saved', {
       variant: 'success'
     });
-    open=!open
 
   };
 
