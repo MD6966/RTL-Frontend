@@ -119,8 +119,6 @@ const TopBar = (props) => {
   );
 
   const handleLogout = () => {
-    // dispatch(logout());
-    // history.push('/');
     setOpen(true)
   };
 

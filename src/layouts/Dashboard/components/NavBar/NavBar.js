@@ -3,7 +3,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { makeStyles } from '@material-ui/styles';
 import {
   Drawer,
@@ -11,9 +11,12 @@ import {
   Paper,
   Avatar,
   Typography,
-  CircularProgress
+  CircularProgress,
+  Container,
+  Box,
+  Button
 } from '@material-ui/core';
-import { Hidden } from '@material-ui/core';
+import { Hidden, Dialog, DialogActions, DialogTitle,DialogContent} from '@material-ui/core';
 import DashboardIcon from '@material-ui/icons/DashboardOutlined';
 import gasIcon from '@material-ui/icons/LocalGasStation';
 import acIcon from '@material-ui/icons/AcUnit';
@@ -30,8 +33,9 @@ import BatteryFullIcon from '@material-ui/icons/BatteryFull';
 import TrafficIcon from '@material-ui/icons/Traffic';
 import FireplaceIcon from '@material-ui/icons/Fireplace';
 import HotTubTwoToneIcon from '@material-ui/icons/HotTubTwoTone';
-
-
+import InputIcon from '@material-ui/icons/Input';
+import WarningIcon from '@material-ui/icons/Warning';
+import { logout } from 'store/actions';
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
@@ -58,17 +62,40 @@ const useStyles = makeStyles((theme) => ({
   },
   navigation: {
     marginTop: theme.spacing(2)
+  },
+  logoutIcon: {
+    marginRight: theme.spacing(1)
+  },
+  confirm: {
+    fontSize:'1rem', 
+    fontWeight:800, 
+    marginLeft:'1rem', 
+    marginTop:'1.2rem',
   }
+
 }));
 
 const NavBar = (props) => {
   const { openMobile, onMobileClose, className, ...rest } = props;
-
+  const dispatch = useDispatch()
+  const { history } = useRouter();
   const classes = useStyles();
   const router = useRouter();
   const user = useSelector((state) => state.auth.user);
-
+  const [open , setOpen] = useState(false)
   const [navigationConfig, setConfig] = useState([]);
+  const handleLogout = () => {
+    setOpen(true)
+  };
+  const handleCancel = () => {
+    setOpen(false)
+   };
+ 
+   const handleOk = () => {
+ 
+     dispatch(logout());
+     history.push('/');
+   };
 
   useEffect(() => {
     if (openMobile) {
@@ -251,6 +278,46 @@ const NavBar = (props) => {
               title={list.title}
             />
           ))}
+          <Hidden lgUp>
+
+          <Box >
+            <Divider  className={classes.divider}  /> 
+            <Button style={{marginTop:'5%'}} 
+             color="inherit"
+             onClick={handleLogout}
+             >
+              <InputIcon className={classes.logoutIcon}  /> 
+              Sign Out
+            </Button>
+          </Box>
+              </Hidden>
+          <Dialog open={open}  fullWidth={true} >
+      <DialogTitle>
+        <>
+        <Box style={{display:'flex'}}>
+        <Box>
+        <WarningIcon style={{fontSize:'3rem', color:'red'}} /> 
+        </Box>
+        <Box>
+       <Typography  className={classes.confirm}>  Confirm </Typography>
+        </Box>
+        </Box>
+        </>
+      </DialogTitle>
+      <DialogContent >
+        <Typography sx={{ typography: { sm: 'body1', xs: 'body2' } }}>
+          Are you sure want to log out ? 
+        </Typography>
+      </DialogContent>
+      <DialogActions>
+      <Button onClick={handleCancel} color="primary">
+          No
+        </Button>
+        <Button onClick={handleOk} color="primary" variant='contained'>
+          Yes
+        </Button>
+      </DialogActions>
+      </Dialog>
         </nav>
       )}
     </div>
