@@ -25,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
 
 const HybridGeyserDashboardDefault = (props) => {
   const classes = useStyles();
-  const { sensor, settings, loading} = props;
+  const { sensor, settings, loading,} = props;
+ 
 
   return (
   <div>
@@ -75,31 +76,39 @@ const HybridGeyserDashboardDefault = (props) => {
         />
       </Grid>
 
+        {
+          sensor.variant === 'Hybrid' ? (
+            <>
       <Grid
-        item
-        lg={6}
-        sm={12}
-        xs={12}
-      >
-        <GasValve
-          sensor={sensor}
-          type="valvestatus_update"
-          status={sensor.gas_valve}
+      item
+      lg={6}
+      sm={12}
+      xs={12}
+    >
+      <GasValve
+        sensor={sensor}
+        type="valvestatus_update"
+        status={sensor.gas_valve}
         />
-      </Grid>
+    </Grid>
 
-      <Grid
-        item
-        lg={6}
-        sm={12}
-        xs={12}
-      >
-        <BurnerStatus
-          sensor={sensor}
-          type="burnerstatus_update"
-          status={sensor.burner_status}
+    <Grid
+      item
+      lg={6}
+      sm={12}
+      xs={12}
+    >
+      <BurnerStatus
+        sensor={sensor}
+        type="burnerstatus_update"
+        status={sensor.burner_status}
         />
-      </Grid>
+    </Grid>
+
+        </>
+          ) : null
+        }
+
 
       {/* <Grid
         item

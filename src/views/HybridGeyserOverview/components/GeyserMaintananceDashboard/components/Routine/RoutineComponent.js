@@ -61,7 +61,7 @@ const useStyles = makeStyles((theme) => ({
 
 const RoutineComponent = (props) => {
   const { className, sensor, routine, key, index, ...rest } = props;
-  
+ 
   const classes = useStyles();
   const dispatch = useDispatch();
   const { enqueueSnackbar } = useSnackbar();

@@ -361,10 +361,8 @@ code : null,
   
   
     const handleSubmit = (event) => {
-      console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>')
         event.preventDefault();    
           setFormErrors(validate(formValues))
-          console.log( '+++++++++++++++++++++++++++')
     if (!errors.username && !errors.email && !errors.password && !errors.confirmpassword && !errors.contact 
       && !errors.address && !errors.city && !errors.code && !errors.geyserid && !errors.geysername
       )

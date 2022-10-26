@@ -47,7 +47,7 @@ const TemperatureUpperThreshold = (props) => {
       setT(sensor.temp_upperthreshold);
     }, 500);
   }, [sensor.temp_upperthreshold]);
-
+   console.log(sensor.temp_lowerthreshold)
   return (
     <Card
       {...rest}

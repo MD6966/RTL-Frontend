@@ -48,11 +48,20 @@ export default function FormDialog_UpperLmt(props) {
 
   const handleSubmit = () => {
     if (value !== null && value !== undefined) {
-      dispatch(setThreshold(id, type, value));
-      enqueueSnackbar('Threshold Set Successfully', {
-      variant: 'success'
-    });
-    setOpen(false);
+      if(value < sensor.temp_lowerthreshold){
+        enqueueSnackbar('Upper Threshold should be greater than Lower Threshold', {
+          variant: 'error'
+        });
+
+      }
+      else {
+
+        dispatch(setThreshold(id, type, value));
+        enqueueSnackbar('Threshold Set Successfully', {
+          variant: 'success'
+        });
+        setOpen(false);
+      }
     }
     else {
       enqueueSnackbar('Please Select the Value', {

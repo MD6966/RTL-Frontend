@@ -39,6 +39,7 @@ export default function FormDialog_LowerLmt(props) {
   // const [enable, setEnable] = useState(sensor.routine_enable);
   const { enqueueSnackbar } = useSnackbar();
   const classes = useStyles();
+  console.log(sensor.temp_lowerthreshold)
   const handleClickOpen = () => {
     setOpen(true);
   };

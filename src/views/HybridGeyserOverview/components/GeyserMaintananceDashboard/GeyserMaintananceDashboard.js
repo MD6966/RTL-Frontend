@@ -40,7 +40,6 @@ const GeyserMaintananceDashboard = (props) => {
   const [enable, setEnable] = useState(sensor.routine_enable);
   const [allroutineSegment, setAllRoutineSegment] = React.useState(false);
   const routine_loading = useSelector((state) => state.geyserhybrid.geyser[index].scheduling.routineLoading);
-  
   const handleSchedule = () => {
     if(sensor.system_status === true)
     {
@@ -120,14 +119,20 @@ const GeyserMaintananceDashboard = (props) => {
             type="temp_upperthreshold"
           />
         </Grid>
-        <Grid
-          item
-          lg={6}
-          sm={12}
-          xs={12}
-        >
-          <SourceMode sensor = {sensor} />
-        </Grid>
+        {
+          sensor.variant === 'Hybrid' ? (
+            <Grid
+            item
+            lg={6}
+            sm={12}
+            xs={12}
+          >
+            <SourceMode sensor = {sensor} />
+          </Grid>
+
+          ) : null
+        }
+       
         {/* <Grid
           item
           lg={6}
