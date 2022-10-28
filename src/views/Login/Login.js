@@ -26,6 +26,7 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import { useDispatch } from 'react-redux';
 import { forgetPassword } from 'store/actions';
 import { Alert } from '@material-ui/lab';
+import { useSnackbar } from 'notistack';
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100%',
@@ -90,6 +91,7 @@ const useStyles = makeStyles((theme) => ({
 
 const Login = () => {
   const classes = useStyles();
+  const { enqueueSnackbar } = useSnackbar();
   const [openDialog, setOpenDialog] = useState(false)
   const [value, setvalue]= useState('')
   // const [data ,setData] = useState({
@@ -101,18 +103,27 @@ const Login = () => {
   };
   const dispatch = useDispatch();
   const handlesubmit = () => {
-    setOpenDialog(false);
+    
     if(value.length > 0)
     {
       dispatch(forgetPassword(value))
     .then((res) => {
       // console.log('Response is>>>>>>>>>>>', res.res.data.message
-     alert(res.res.data.message)
+      enqueueSnackbar( res.res.data.message,{
+        variant: 'success'
+      });
+      setOpenDialog(false); 
   
     } )
     }
-    else alert ('Enter your email')
-   
+    else {
+
+      enqueueSnackbar( "Please Enter Email",{
+        variant: 'error'
+      });
+      setOpenDialog(true);  
+    }
+
   };
   const handleClose = () => {
     

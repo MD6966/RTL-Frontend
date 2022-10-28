@@ -62,7 +62,7 @@ export const  register = (formValues) =>async (dispatch)=>{
   const phone_no = formValues.contact;
   const city = formValues.city;
   const address = formValues.address;
-  const board_id = formValues.code.concat(formValues.geyserid);
+  const board_id = formValues.geyserid;
   const geyser_name = formValues.geysername;
   const dashboards = [formValues.module]; 
   var compName = (formValues.code === 'sns' ? 'sync and secure'  : 'cannon' )

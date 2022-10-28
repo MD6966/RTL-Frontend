@@ -2,20 +2,29 @@ import React from 'react'
 import ParticlesContainer from './components/ParticlesContainer'
 import { Page } from 'components'
 import { makeStyles } from '@material-ui/styles';
-import { Card, CardContent, Typography, Divider, Link, CardMedia } from '@material-ui/core';
+import { Card, CardContent, Typography, Divider, Link, CardMedia, Grid, Box } from '@material-ui/core';
 import { Link as RouterLink } from 'react-router-dom';
 import LockIcon from '@material-ui/icons/Lock';
 import gradients from 'utils/gradients';
-import RegisterUserForm from './components/RegisterUserForm';
-
+// import RegisterUserForm from './components/RegisterUserForm';
+import RegisterNewUserForm from './components/RegisterNewUserForm';
 const useStyles = makeStyles((theme) => ({
     root: {
       height: '100%',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      padding: theme.spacing(6, 2)
+      padding: theme.spacing(6, 2),
+     
+      
     },
+    mainCard: { 
+      width:'70%',
+      height:'100%',
+      padding:theme.spacing(6,2,0),
+      borderRadius:'10px'
+
+    }, 
     card: {
       width: theme.breakpoints.values.md,
       maxWidth: '100%',
@@ -51,7 +60,7 @@ const useStyles = makeStyles((theme) => ({
       padding: theme.spacing(1),
       position: 'absolute',
       top: -32,
-      left: theme.spacing(3),
+      // left: 60,
       height: 64,
       width: 64,
       fontSize: 32
@@ -68,6 +77,15 @@ const useStyles = makeStyles((theme) => ({
     },
     avatar: {
       marginRight: theme.spacing(2)
+    },
+    box: {
+      marginTop: theme.spacing(-5),
+      marginBottom: theme.spacing(2)
+    },
+    grid : {
+      display:'flex',
+                  justifyContent:'center',
+                  marginBottom:'10%'
     }
   }));
 
@@ -82,7 +100,7 @@ const RegisterUser = () => {
         top: 0,
         left: 0,
         width: '100%',
-        height: '100%'
+        height: '100%',
       
       }}
     >
@@ -98,14 +116,22 @@ const RegisterUser = () => {
           }}
         >
             <Page
-             className={classes.root}
+            //  className={classes.root}
              title="Register"
             >
-                <Card
-                className={classes.card}
+              <Grid container>
+                <Grid item
+                xs={12}
+                sm={12}
+                md={12}
+                lg={12}
+                xl={12}
+                className={classes.grid}
                 >
-                    <CardContent className={classes.content}>
+                  <Card className={classes.mainCard} elevation={4}>
+                  <CardContent className={classes.content}>
                     <LockIcon className={classes.icon} />
+                    <Box className={classes.box}>
                     <Typography
                 gutterBottom
                 variant="h3"
@@ -115,7 +141,9 @@ const RegisterUser = () => {
               <Typography variant="subtitle2">
                 Sign up on the internal platform
               </Typography>
-              <RegisterUserForm className={classes.loginForm} />
+                    </Box>
+              <RegisterNewUserForm /> 
+              
               <Typography gutterBottom style={{textAlign:'center',
             marginTop:'2%'
             }}> 
@@ -125,14 +153,11 @@ const RegisterUser = () => {
               <Divider className={classes.divider} />
 
                     </CardContent>
-                    {/* <CardMedia
-              className={classes.media}
-              image="/images/iot.webp"
-              title="Cover"
-            /> */}
+              </Card>
+                </Grid>
 
+              </Grid>
 
-                </Card>
 
             </Page>
 
