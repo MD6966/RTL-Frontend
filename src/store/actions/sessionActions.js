@@ -173,6 +173,7 @@ export const login = ({ email, password }, ip) => async (
   dispatch,
   getState
 ) => {
+  console.log(email, password)
   dispatch({
     type: 'USER_LOADING'
   });
@@ -195,7 +196,7 @@ export const login = ({ email, password }, ip) => async (
       body,
       config
     );
-    // console.log(data)
+    console.log(data)
     dispatch({
       type: 'LOGIN_SUCCESS',
       payload: data.data

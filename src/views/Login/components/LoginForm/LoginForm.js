@@ -121,7 +121,9 @@ const LoginForm = (props) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     await dispatch(login(formState.values, ip));
+    console.log(formState.values)
   };
+
 
   const hasError = (field) =>
     formState.touched[field] && formState.errors[field] ? true : false;

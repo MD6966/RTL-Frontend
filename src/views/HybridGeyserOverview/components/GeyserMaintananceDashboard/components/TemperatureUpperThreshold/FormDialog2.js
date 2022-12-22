@@ -48,7 +48,7 @@ export default function FormDialog_UpperLmt(props) {
 
   const handleSubmit = () => {
     if (value !== null && value !== undefined) {
-      if(value < sensor.temp_lowerthreshold){
+      if(value <=  sensor.temp_lowerthreshold){
         enqueueSnackbar('Upper Threshold should be greater than Lower Threshold', {
           variant: 'error'
         });
